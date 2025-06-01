@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+ <!-- Font Awesome 6.7.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <style>
+        .jumbotron {
+            background-color: black;
+            color: white;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .form-control {
+            width: 400px;
+            margin: auto;
+        }
+        .btn {
+            margin: auto;
+            width: 100px;
+            height: 60px;
+        }
+        .footer {
+            background-color: black;
+            width: auto;
+            height: 300px;
+            border-radius: 5px;
+            display: flex;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .footer-text {
+            margin: auto;
+        }
+        header{
+    width: auto;
+    height: 70px;
+    background-color: black;
+    display: flex;
+}
+nav{
+margin: auto;
+}
+a{
+    color: white;
+    padding: 15px;
+}
+a:hover{
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    transition: 1s;
+}
+i{
+    font-size: 30px;
+}
+#sel{
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+}
+    </style>
+  </head>
+  <body>
+      <header>
+        <nav>
+        <a href="index.html" id="sel"><i class="fa fa-solid fa-home"></i></a>
+        <a href="calcular.html" ><i class="fa fa-solid fa-calculator"></i></a>   
+      </nav>
+        
+      </header>
+      <main>
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Site Financeiro</h1>
+            <p class="lead">Cálculo e organização financeira</p>
+            <hr class="my-2">
+        </div>
+        <!-- Formulário de dados -->
+        <form class="text-center">
+            <h2>Valor do Patrimônio</h2>
+            <input class="form-control form-control-lg text-center" type="text" placeholder="Exemplo: 100.00" id="valorpatri">
+            <br>
+            <h2>Valor de Despesas (%)</h2>
+            <select class="form-control form-control-lg text-center" id="valordespe">
+                <option value="50">50% - Recomendado</option>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+            </select>
+            <br>
+            <h2>Valor Emergencial (%)</h2>
+            <select class="form-control form-control-lg text-center" id="valoremerg">
+                <option value="30">30% - Recomendado</option>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+            </select>
+            <br>
+            <h2>Valor de Investimento (%)</h2>
+            <select class="form-control form-control-lg text-center" id="valorinves">
+                <option value="20">20% - Recomendado</option>
+                <option value="10">10%</option>
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+            </select>
+        </form>
+        <div class="container text-center">
+            <br> <br>
+            <button type="button" class="btn btn-success text-center" onclick="Calcular()">
+                Calcular
+            </button>
+            <button type="button" class="btn btn-dark text-center">
+                Cancelar
+            </button>
+            <br> <br> <br>
+        </div>
+      </main>
+      <footer class="footer text-center">
+        <h2 class="footer-text text-white text-center">Site feito por: Antonio Henrique de Andrade Gomes</h2>
+      </footer>
+
+    <script>
+        function Calcular() {
+            // Captura os valores dos inputs
+            var valorP = document.getElementById('valorpatri').value;
+            var valorD = document.getElementById('valordespe').value;
+            var valorE = document.getElementById('valoremerg').value;
+            var valorI = document.getElementById('valorinves').value;
+
+            // Verifica se os valores são válidos
+            if (isNaN(valorP) || isNaN(valorD) || isNaN(valorE) || isNaN(valorI) || valorP === "") {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Por favor, insira valores válidos!",
+                });
+                return;
+            }
+
+            // Guarda os valores no navegador (localStorage)
+            localStorage.setItem("valorP", valorP);
+            localStorage.setItem("valorD", valorD);
+            localStorage.setItem("valorE", valorE);
+            localStorage.setItem("valorI", valorI);
+
+            // Redireciona para a página principal (main.html)
+            window.location.href = "main.html";
+        }
+    </script>
+</html>

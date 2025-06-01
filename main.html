@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Main</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
+    
+    <style>
+        .jumbotron {
+            background-color: black;
+            color: white;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .form-control {
+            width: 400px;
+            margin: auto;
+        }
+        .btn {
+            margin: auto;
+            width: auto;
+            height: 60px;
+        }
+        .footer {
+            background-color: black;
+            width: auto;
+            height: 300px;
+            border-radius: 5px;
+            display: flex;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .footer-text {
+            margin: auto;
+        }
+        header{
+    width: auto;
+    height: 70px;
+    background-color: black;
+    display: flex;
+}
+nav{
+margin: auto;
+}
+a{
+    color: white;
+    padding: 15px;
+}
+a:hover{
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    transition: 1s;
+}
+i{
+    font-size: 30px;
+}
+#sel{
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+}
+    </style>
+  </head>
+  <body>
+      <header>
+         <nav>
+        <a href="home.html" id="sel"><i class="fa fa-solid fa-home"></i></a>
+        <a href="calcular.html" ><i class="fa fa-solid fa-calculator"></i></a>   
+      </nav>
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Site Financeiro</h1>
+            <p class="lead">Calculo e organização financeira</p> <br>
+            <p class="lead">Resultado dos Valores</p>
+            <hr class="my-2">
+        </div>
+      </header>
+      <main>
+        <!-- Formulário de dados -->
+        <form class="text-center">
+            <h2>Valor do Patrimônio</h2>
+            <input class="form-control form-control-lg text-center" type="text" id="valorpatri">
+            <br>
+            <h2>Valor de Despesas %</h2>
+            <input class="form-control form-control-lg text-center" type="text" id="valordespe">
+            <br>
+            <h2>Valor Emergencial %</h2>
+            <input class="form-control form-control-lg text-center" type="text" id="valoremerg">
+            <br>
+            <h2>Valor de Investimento %</h2>
+            <input class="form-control form-control-lg text-center" type="text" id="valorinves">
+        </form>
+        <div class="container text-center">
+            <br> <br>
+            <button type="button" class="btn btn-success text-center" onclick="help()">
+                Ajude com o meu projeto 
+            </button>
+            <button type="button" class="btn btn-dark text-center" onclick="back()">
+                Voltar a página Inicial
+            </button>
+            <br> <br> <br>
+        </div>
+        <br><br>
+      </main>
+      <footer class="footer text-center">
+        <h2 class="footer-text text-white text-center">Site feito por: Antonio Henrique de Andrade Gomes</h2>
+      </footer>
+  
+    <script>
+        // Função para carregar valores do localStorage e calcular as porcentagens
+        function carregarValores() {
+            // Recupera os valores armazenados no localStorage
+            let vp = localStorage.getItem("valorP");
+            let vd = localStorage.getItem("valorD");
+            let ve = localStorage.getItem("valorE");
+            let vi = localStorage.getItem("valorI");
+
+            // Preenche o valor do patrimônio
+            document.getElementById('valorpatri').value = vp;
+            
+            // Recupera os valores do patrimônio e dos percentuais
+            let valorP = parseFloat(vp);
+            let valorD = parseFloat(vd);
+            let valorE = parseFloat(ve);
+            let valorI = parseFloat(vi);
+
+         
+
+            // Calcula as porcentagens
+            let despesas = valorP * (valorD / 100);
+            let emergencial = valorP * (valorE / 100);
+            let investimento = valorP * (valorI / 100);
+
+            // Exibe os resultados nos inputs
+            document.getElementById('valordespe').value = despesas.toFixed(2);
+            document.getElementById('valoremerg').value = emergencial.toFixed(2);
+            document.getElementById('valorinves').value = investimento.toFixed(2);
+        }
+
+        // Carrega os valores do localStorage quando a página for carregada
+        window.onload = carregarValores;
+
+        // Função para redirecionar para a página inicial
+        function back() {
+            window.location.href = "home.html";
+        }
+
+        // Função de ajuda com o SweetAlert2
+        function help() {
+            Swal.fire({
+                title: "Obrigado pela sua visita!!",
+                text: "Sua visita é essencial para nos ajudar caso queira mandar sua opnião segue o email: antonioandradegomes2009@gmail.com",
+            });
+        }
+    </script>
+  </body>
+</html>
